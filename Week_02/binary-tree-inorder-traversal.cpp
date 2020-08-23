@@ -48,4 +48,17 @@ class Solution {
 
         return res;
     }
+
+    vector<int> inorderTraversal2(TreeNode* root) {
+        vector<int> result;
+        helper(root, result);
+        return result;
+    }
+
+    void helper(TreeNode* root, vector<int>& result) {
+        if (root == NULL) return;
+        helper(root->left, result);
+        result.push_back(root->val);
+        helper(root->right, result);
+    }
 };
